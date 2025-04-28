@@ -1,4 +1,4 @@
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -20,6 +20,7 @@ public class Game implements MouseListener, MouseMotionListener {
 
     // Instance Variables
     private Cookie cookie;
+    private Granny granny;
     private int clickNum;
     private int points;
 
@@ -29,6 +30,7 @@ public class Game implements MouseListener, MouseMotionListener {
     public Game() {
         // Create a Ball with the 0 parameter constructor
         this.cookie = new Cookie();
+        this.granny = new Granny(window);
         this.clickNum = 0;
         this.points = 0;
 
@@ -49,6 +51,13 @@ public class Game implements MouseListener, MouseMotionListener {
     {
         return cookie;
     }
+
+    public Granny getGranny()
+    {
+        return granny;
+    }
+
+
     public static void main(String[] args) {
         Game md = new Game();
     }
@@ -87,6 +96,7 @@ public class Game implements MouseListener, MouseMotionListener {
             points++;
             cookie.setColor(COLORS[clickNum % COLORS.length]);
             System.out.println(points);
+
         }
 
         window.repaint();
@@ -135,6 +145,11 @@ public class Game implements MouseListener, MouseMotionListener {
         // For demo purposes only
 //        System.out.println("\t\t\texecuting mouseMoved event handler");
     }
+
+    public int getPoints() {
+        return points;
+    }
+
 
     /********************************************
      MouseMotionListener event handlers - END

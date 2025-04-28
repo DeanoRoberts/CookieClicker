@@ -47,12 +47,22 @@ public class GameView extends JFrame {
         // Set the background of the Frame to LIGHT_GRAY
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, getInsets().top, getWidth(), getHeight());
+
+        String instructions = "  Today you will be playing Cookie clicker!\n" + "" + "Click the Cookie!";
+        g.setColor(Color.BLACK);
+        g.drawString(instructions, 100, 100);
+
+        String p = " " + game.getPoints();
+        g.setColor(Color.BLACK);
+        g.drawString(p, 10, 300);
+
+
         // Note: getInsets().top just finds where the Title Bar ends and the usable area starts
 
         // Set the Color of the information box to WHITE
-        g.setColor(Color.WHITE);
-        g.fillRect(INFO_RECT_TOP_LEFT_X, INFO_RECT_TOP_LEFT_Y,
-                INFO_RECT_WIDTH, INFO_RECT_HEIGHT);
+//        g.setColor(Color.WHITE);
+//        g.fillRect(INFO_RECT_TOP_LEFT_X, INFO_RECT_TOP_LEFT_Y,
+//                INFO_RECT_WIDTH, INFO_RECT_HEIGHT);
 
         // Set the Color of information Strings to Black
         g.setColor(Color.BLACK);
@@ -61,5 +71,9 @@ public class GameView extends JFrame {
 
         // Have the ball draw itself
         game.getCookie().draw(g);
+        game.getGranny().draw(g,400, 120);
+
+
+
     }
 }
