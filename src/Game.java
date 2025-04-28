@@ -95,7 +95,7 @@ public class Game implements MouseListener, MouseMotionListener {
     @Override
     public void mouseEntered(MouseEvent e) {
         // For demo purposes only
-//        System.out.println("mouseEntered event handler executed.");
+//        Sysem.out.println("mouseEntered event handler executed.");
     }
 
     @Override
