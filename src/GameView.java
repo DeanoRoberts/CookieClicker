@@ -56,6 +56,11 @@ public class GameView extends JFrame {
         g.setColor(Color.BLACK);
         g.drawString(p, 10, 300);
 
+        String grannyCounter = " " + game.getNumGranny();
+        g.setColor(Color.BLACK);
+        g.drawString(grannyCounter, 10, 200);
+
+
 
         // Note: getInsets().top just finds where the Title Bar ends and the usable area starts
 

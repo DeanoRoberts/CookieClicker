@@ -1,7 +1,6 @@
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
 import static java.lang.Math.sqrt;
 
@@ -14,7 +13,7 @@ import static java.lang.Math.sqrt;
  * mouse events, which in turn call the methods that are implemented in the back-end.
  */
 
-public class Game implements MouseListener, MouseMotionListener {
+public class Game implements ActionListener, MouseListener, MouseMotionListener {
 
     public static final Color[] COLORS = {Color.RED, Color.BLUE, Color.GREEN};
 
@@ -23,6 +22,8 @@ public class Game implements MouseListener, MouseMotionListener {
     private Granny granny;
     private int clickNum;
     private int points;
+    private int numGranny;
+    private Timer clock;
 
     private GameView window;
 
@@ -33,6 +34,8 @@ public class Game implements MouseListener, MouseMotionListener {
         this.granny = new Granny(window);
         this.clickNum = 0;
         this.points = 0;
+        this.numGranny = 0;
+
 
 
         // Initialize the front-end
@@ -45,6 +48,9 @@ public class Game implements MouseListener, MouseMotionListener {
         // the front-end senses the mouse, but the back-end has the methods.
         this.window.addMouseListener(this);
         this.window.addMouseMotionListener(this);
+
+        clock = new Timer(1000, this);
+        clock.start();
     }
 
     public Cookie getCookie()
@@ -99,6 +105,23 @@ public class Game implements MouseListener, MouseMotionListener {
 
         }
 
+        if (xVal <= (400 + 133) && xVal >= (400) && yVal <= (120 + 133) && yVal >= (120))
+        {
+            if (points >= 10)
+            {
+                numGranny++;
+                points-= 5;
+
+            }
+
+        }
+
+
+
+
+
+
+
         window.repaint();
     }
 
@@ -148,6 +171,20 @@ public class Game implements MouseListener, MouseMotionListener {
 
     public int getPoints() {
         return points;
+    }
+
+    public int getNumGranny()
+    {
+        return  numGranny;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (numGranny > 0)
+        {
+            points += numGranny;
+        }
+        window.repaint();
     }
 
 

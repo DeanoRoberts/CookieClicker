@@ -14,6 +14,8 @@ public class Granny {
     }
 
 
+
+
     public void draw(Graphics g, int x, int y) {
 
         g.drawImage(image,        // Image to draw
