@@ -17,17 +17,8 @@ public class GameView extends JFrame {
     public static final int DEMO_WIDTH = 700;
     public static final int DEMO_HEIGHT = 500;
 
-    // Configuration constants: Used to configure the location of the information box and the Strings inside of it.
-    public static final int INFO_RECT_TOP_LEFT_X = 85;
-    public static final int INFO_RECT_TOP_LEFT_Y = 85;
-    public static final int INFO_RECT_WIDTH = 220;
-    public static final int INFO_RECT_HEIGHT = 60;
-    public static final int INFO_STR_X = 100;
-    public static final int INFO_STR_1_Y = 100;
-    public static final int INFO_STR_2_Y = 120;
-    public static final int INFO_STR_3_Y = 140;
-
     private Game game;
+    private Image background;
 
 
 
@@ -39,25 +30,27 @@ public class GameView extends JFrame {
         this.setTitle("Mouse Demo");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+
+        this.background = new ImageIcon("Resources/object/thebg.jpg").getImage();
     }
 
     @Override
     public void paint(Graphics g)
     {
+        g.drawImage(background, 0,0,this);
         // Set the background of the Frame to LIGHT_GRAY
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0, getInsets().top, getWidth(), getHeight());
+
 
         String instructions = "  Today you will be playing Cookie clicker!\n" + "" + "Click the Cookie!";
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawString(instructions, 100, 100);
 
         String p = " " + game.getPoints();
-        g.setColor(Color.BLACK);
-        g.drawString(p, 10, 300);
+        g.setColor(Color.WHITE);
+        g.drawString(p, 30, 150);
 
         String grannyCounter = " " + game.getNumGranny();
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawString(grannyCounter, 10, 200);
 
 
@@ -76,6 +69,7 @@ public class GameView extends JFrame {
 
         // Have the ball draw itself
         game.getCookie().draw(g);
+        game.getTheCookie().draw(g, 90, 180);
         game.getGranny().draw(g,400, 120);
 
 

@@ -20,6 +20,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
     // Instance Variables
     private Cookie cookie;
     private Granny granny;
+    private TheCookie theCookie;
     private int clickNum;
     private int points;
     private int numGranny;
@@ -32,6 +33,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         // Create a Ball with the 0 parameter constructor
         this.cookie = new Cookie();
         this.granny = new Granny(window);
+        this.theCookie = new TheCookie(window);
         this.clickNum = 0;
         this.points = 0;
         this.numGranny = 0;
@@ -63,10 +65,13 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         return granny;
     }
 
-
-    public static void main(String[] args) {
-        Game md = new Game();
+    public TheCookie getTheCookie()
+    {
+        return theCookie;
     }
+
+
+
 
     /********************************************
      MouseListener event handlers - BEGIN
@@ -115,11 +120,6 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
             }
 
         }
-
-
-
-
-
 
 
         window.repaint();
@@ -191,4 +191,9 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
     /********************************************
      MouseMotionListener event handlers - END
      ********************************************/
+
+
+    public static void main(String[] args) {
+        Game md = new Game();
+    }
 }
