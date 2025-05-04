@@ -44,14 +44,33 @@ public class GameView extends JFrame {
         String instructions = "  Today you will be playing Cookie clicker!\n" + "" + "Click the Cookie!";
         g.setColor(Color.WHITE);
         g.drawString(instructions, 100, 100);
-
-        String p = " " + game.getPoints();
+        // Cookie counter
+        String p = "Cookies: " + game.getPoints();
         g.setColor(Color.WHITE);
-        g.drawString(p, 30, 150);
+        g.drawString(p, 150, 160);
 
-        String grannyCounter = " " + game.getNumGranny();
+        // Granny Counter
+        String grannyCounter = "Granny Count: " + game.getNumGranny();
         g.setColor(Color.WHITE);
-        g.drawString(grannyCounter, 10, 200);
+        g.drawString(grannyCounter, 420, 290);
+
+       // Granny cost counter
+        String grannyCostCounter = "Costs $" + game.getGrannyCost();
+        g.setColor(Color.WHITE);
+        g.drawString(grannyCostCounter, 420, 270);
+
+        // Factory Counter
+        String factoryCounter = "Factory Count: " + game.getNumFactory();
+        g.setColor(Color.WHITE);
+        g.drawString(factoryCounter, 420, 490);
+
+        // Factory cost counter
+        String factoryCostCounter = "Costs $" + game.getFactoryCost();
+        g.setColor(Color.WHITE);
+        g.drawString(factoryCostCounter, 420, 470);
+
+
+
 
 
 
@@ -71,6 +90,7 @@ public class GameView extends JFrame {
         game.getCookie().draw(g);
         game.getTheCookie().draw(g, 90, 180);
         game.getGranny().draw(g,400, 120);
+        game.getFactory().draw(g, 400, 320);
 
 
 

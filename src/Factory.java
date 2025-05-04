@@ -1,16 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Granny {
+public class Factory {
     private Image image;
     private GameView window;
 
-    private final int GRANNY_IMAGE_WIDTH = 295;
-    private final int GRANNY_IMAGE_HEIGHT = 440;
+    private final int GRANNY_IMAGE_WIDTH = 144;
+    private final int GRANNY_IMAGE_HEIGHT = 144;
 
-    public Granny(GameView window) {
+    public Factory(GameView window) {
         this.window = window;
-        this.image = new ImageIcon("Resources/object/granny.png").getImage();
+        this.image = new ImageIcon("Resources/object/CookieFactory.png").getImage();
     }
 
 
@@ -20,16 +20,13 @@ public class Granny {
 
         g.drawImage(image,        // Image to draw
                 x, y,    // (x, y) of upper left corner in output window
-                GRANNY_IMAGE_WIDTH / 4 , GRANNY_IMAGE_HEIGHT /4  ,    // Scaled width, height
+                GRANNY_IMAGE_WIDTH  , GRANNY_IMAGE_HEIGHT   ,    // Scaled width, height
                 window);
 
 
     }
 
 }
-
-
-
 
 
 

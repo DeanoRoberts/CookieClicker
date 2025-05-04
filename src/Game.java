@@ -20,11 +20,19 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
     // Instance Variables
     private Cookie cookie;
     private Granny granny;
+    private Factory factory;
     private TheCookie theCookie;
+
     private int clickNum;
     private int points;
+
     private int numGranny;
+    private int numFactory;
+
     private Timer clock;
+
+    private int grannyCost;
+    private int factoryCost;
 
     private GameView window;
 
@@ -34,9 +42,15 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         this.cookie = new Cookie();
         this.granny = new Granny(window);
         this.theCookie = new TheCookie(window);
+        this.factory = new Factory(window);
         this.clickNum = 0;
         this.points = 0;
+
         this.numGranny = 0;
+        this.numFactory = 0;
+
+        this.grannyCost = 10;
+        this.factoryCost = 100;
 
 
 
@@ -65,10 +79,17 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         return granny;
     }
 
+    public Factory getFactory()
+    {
+        return factory;
+    }
+
     public TheCookie getTheCookie()
     {
         return theCookie;
     }
+
+
 
 
 
@@ -109,17 +130,37 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
             System.out.println(points);
 
         }
-
-        if (xVal <= (400 + 133) && xVal >= (400) && yVal <= (120 + 133) && yVal >= (120))
-        {
-            if (points >= 10)
-            {
+        // granny click
+        if (xVal <= (400 + 133) && xVal >= (400) && yVal <= (120 + 133) && yVal >= (120)) {
+            if (points >= grannyCost) {
                 numGranny++;
-                points-= 5;
+
+                grannyCost = (grannyCost * numGranny) + 5;
+                points -= grannyCost;
+
+                if (points < 0) {
+                    points = 0;
+                }
 
             }
 
         }
+
+
+            if (xVal <= (400 + 144) && xVal >= (400) && yVal <= (320 + 144) && yVal >= (320)) {
+                if (points >= factoryCost) {
+                    numFactory++;
+
+                    factoryCost = (factoryCost * numFactory) + 30;
+                    points -= factoryCost;
+
+                    if (points < 0) {
+                        points = 0;
+                    }
+
+                }
+
+            }
 
 
         window.repaint();
@@ -178,13 +219,37 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         return  numGranny;
     }
 
+    public int getGrannyCost()
+    {
+        return grannyCost;
+    }
+
+    public int getNumFactory()
+    {
+        return numFactory;
+    }
+
+    public int getFactoryCost()
+    {
+        return  factoryCost;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Updates cookie count per num grannys
         if (numGranny > 0)
         {
             points += numGranny;
         }
+
+        if (numFactory > 0)
+        {
+            points += numFactory * 10;
+        }
+
         window.repaint();
+
+
     }
 
 
