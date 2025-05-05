@@ -65,7 +65,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         this.window.addMouseListener(this);
         this.window.addMouseMotionListener(this);
 
-        clock = new Timer(1000, this);
+        clock = new Timer(100, this);
         clock.start();
     }
 
@@ -239,12 +239,12 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         // Updates cookie count per num grannys
         if (numGranny > 0)
         {
-            points += numGranny;
+            points += numGranny/ 10;
         }
 
         if (numFactory > 0)
         {
-            points += numFactory * 10;
+            points += numFactory;
         }
 
         window.repaint();
