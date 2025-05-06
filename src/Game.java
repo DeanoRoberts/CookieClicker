@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import static java.lang.Math.sqrt;
 
@@ -35,6 +36,8 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
     private int factoryCost;
 
     private GameView window;
+
+    private ArrayList<FallingCookie> fallingCookies = new ArrayList<>();
 
     // Constructors
     public Game() {
@@ -89,6 +92,11 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         return theCookie;
     }
 
+    public ArrayList<FallingCookie> getFallingCookies()
+    {
+        return  fallingCookies;
+    }
+
 
 
 
@@ -128,6 +136,9 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
             points++;
             cookie.setColor(COLORS[clickNum % COLORS.length]);
             System.out.println(points);
+
+            fallingCookies.add(new FallingCookie(window));
+
 
         }
         // granny click
@@ -239,7 +250,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         // Updates cookie count per num grannys
         if (numGranny > 0)
         {
-            points += numGranny/ 10;
+            points += numGranny;
         }
 
         if (numFactory > 0)
@@ -248,6 +259,19 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         }
 
         window.repaint();
+
+        for (int i = fallingCookies.size() - 1; i >= 0; i--)
+        {
+            FallingCookie c = fallingCookies.get(i);
+            c.Fall();
+
+
+            if (c.getY() > GameView.DEMO_HEIGHT)
+            {
+                fallingCookies.remove(i);
+            }
+
+        }
 
 
     }

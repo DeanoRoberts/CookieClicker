@@ -74,6 +74,8 @@ public class GameView extends JFrame {
 
 
 
+
+
         // Note: getInsets().top just finds where the Title Bar ends and the usable area starts
 
         // Set the Color of the information box to WHITE
@@ -85,12 +87,17 @@ public class GameView extends JFrame {
         g.setColor(Color.BLACK);
 
         // Draw the Strings onto the Frame (inside of the information box)
-
+        for (FallingCookie c: game.getFallingCookies())
+        {
+            c.draw(g);
+        }
         // Have the ball draw itself
         game.getCookie().draw(g);
         game.getTheCookie().draw(g, 90, 180);
         game.getGranny().draw(g,400, 120);
         game.getFactory().draw(g, 400, 320);
+        System.out.println("Falling cookies: " + game.getFallingCookies().size());
+
 
 
 

@@ -18,10 +18,10 @@ public class FallingCookie
         this.windowWidth = 700;
         this.windowHeight = 500;
 
-        cookie = new ImageIcon("Resources/randCookie.png").getImage();
+        cookie = new ImageIcon("Resources/object/cookie.png").getImage();
 
         this.x = (int)(Math.random() * windowWidth);
-        this.y = (int)(Math.random() * windowHeight);
+        this.y = 0;
         this.dy = MAX_SPEED;
 
     }
@@ -30,6 +30,18 @@ public class FallingCookie
     {
         this.y += dy;
     }
+
+    public void draw(Graphics g)
+    {
+        g.drawImage(cookie, x, y, 50, 50 , window);
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+
 
 
 
