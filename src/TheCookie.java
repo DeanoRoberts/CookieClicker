@@ -1,32 +1,31 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class TheCookie
-{
-        private Image image;
-        private GameView window;
+// main clickable cookie image
+public class TheCookie {
 
-        private final int COOKIE_IMAGE_WIDTH = 533;
-        private final int COOKIE_IMAGE_HEIGHT = 543;
+    // Cookie image + reference to the window
+    private final Image image;
+    private final GameView window;
 
-        public TheCookie(GameView window) {
-            this.window = window;
-            this.image = new ImageIcon("Resources/object/cookie.png").getImage();
-        }
+    // Original image dimensions
+    private final int COOKIE_IMAGE_WIDTH = 533;
+    private final int COOKIE_IMAGE_HEIGHT = 543;
 
-
-
-
-        public void draw(Graphics g, int x, int y) {
-
-            g.drawImage(image,        // Image to draw
-                    x, y,    // (x, y) of upper left corner in output window
-                    (int) (COOKIE_IMAGE_WIDTH / 2.2 ), (int)(COOKIE_IMAGE_HEIGHT /2.2 ) ,    // Scaled width, height
-                    window);
-
-
-        }
-
+    //Constructor
+    public TheCookie(GameView window) {
+        this.window = window;
+        this.image = new ImageIcon("Resources/object/cookie.png").getImage();
     }
 
-
+    //Draws the cookie image
+    public void draw(Graphics g, int x, int y) {
+        g.drawImage(
+                image,
+                x, y,
+                (int) (COOKIE_IMAGE_WIDTH / 2.2),
+                (int) (COOKIE_IMAGE_HEIGHT / 2.2),
+                window
+        );
+    }
+}

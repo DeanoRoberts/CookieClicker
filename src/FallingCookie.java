@@ -1,48 +1,50 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class FallingCookie
-{
-    private GameView window;
-    private Image cookie;
-    private int x, y, dy;
-    private int windowWidth ;
-    private int windowHeight;
-    private static final int MAX_SPEED = 8;
-    private static final int COOKIE_WIDTH = 288;
-    private static final int COOKIE_HEIGHT = 256;
+/**
+ * FallingCookie
+ * Represents a small cookie image that falls down the screen when the  cookie is clicked.
+ */
+public class FallingCookie {
 
-    public FallingCookie( GameView window)
-    {
+    // Reference to the game window
+    private final GameView window;
+
+    // Falling cookie image
+    private final Image cookie;
+
+    // Position and speed
+    private final int x;
+    private int y;
+    private final int dy;
+
+    // Constants
+    private static final int MAX_SPEED = 8;
+    private final int windowWidth;
+
+    //Constructor
+    public FallingCookie(GameView window) {
         this.window = window;
         this.windowWidth = 700;
-        this.windowHeight = 500;
 
-        cookie = new ImageIcon("Resources/object/cookie.png").getImage();
-
-        this.x = (int)(Math.random() * windowWidth);
-        this.y = 0;
-        this.dy = MAX_SPEED;
-
+        this.cookie = new ImageIcon("Resources/object/cookie.png").getImage();
+        this.x = (int) (Math.random() * windowWidth);
+        this.y = 0;                      // Start at top of screen
+        this.dy = MAX_SPEED;            // Constant downward speed
     }
 
-    public  void Fall()
-    {
+    // A method to makes each cookie fall
+    public void Fall() {
         this.y += dy;
     }
 
-    public void draw(Graphics g)
-    {
-        g.drawImage(cookie, x, y, 50, 50 , window);
+    // Draws the  falling cookie
+    public void draw(Graphics g) {
+        g.drawImage(cookie, x, y, 50, 50, window);  // Scaled size for visibility
     }
 
-    public int getY()
-    {
+    // Returns the  y-position of the cookie
+    public int getY() {
         return y;
     }
-
-
-
-
-
 }
