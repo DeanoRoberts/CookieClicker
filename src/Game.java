@@ -149,7 +149,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
     }
 
 
-    // MouseMotionListener event handlers
+    // MouseMotionListener
     @Override
     public void mouseDragged(MouseEvent e) {
         // Not Used
