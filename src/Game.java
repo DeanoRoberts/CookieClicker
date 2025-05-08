@@ -1,3 +1,4 @@
+// Cookie Clicker by Deano Roberts
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -34,7 +35,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
     // List of falling cookies to animate
     private final ArrayList<FallingCookie> fallingCookies = new ArrayList<>();
 
-    //Constructor
+    // Constructor
     public Game() {
         this.granny = new Granny(window);
         this.factory = new Factory(window);
@@ -76,8 +77,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
         return fallingCookies;
     }
 
-    //MouseListener event handlers
-
+    // MouseListener event handlers
     @Override
     public void mouseClicked(MouseEvent e) {
         int xVal = e.getX();
@@ -102,7 +102,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
 
         // Check if Granny is clicked
         if (xVal >= 400 && xVal <= (400 + 133) && yVal >= 120 && yVal <= (120 + 133)) {
-            //Sees if player can buy then updates
+            // Sees if player can buy then updates
             if (points >= grannyCost) {
                 numGranny++;
                 points -= grannyCost;
@@ -114,7 +114,7 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
 
         // Check if Factory is clicked
         if (xVal >= 400 && xVal <= (400 + 144) && yVal >= 320 && yVal <= (320 + 144)) {
-            //Sees if player can buy then updates
+            // Sees if player can buy then updates
             if (points >= factoryCost) {
                 numFactory++;
                 points -= factoryCost;

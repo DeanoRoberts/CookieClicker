@@ -1,10 +1,8 @@
+// Cookie Clicker by Deano Roberts
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Factory
- * Displays a factory image
- */
+// Displays a factory image
 public class Factory {
 
     // Factory Image
@@ -22,7 +20,6 @@ public class Factory {
         this.window = window;
         this.image = new ImageIcon("Resources/object/CookieFactory.png").getImage();
     }
-
 
     // Draws the factory image at a specific (x, y) and size
     public void draw(Graphics g, int x, int y) {

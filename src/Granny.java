@@ -1,11 +1,9 @@
+// Cookie Clicker by Deano Roberts
+
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Granny
- * Represents a clickable granny upgrade in the Cookie Clicker game.
- * When purchased, grannies increase cookie production.
- */
+// Granny granny upgrade in cookie clicker
 public class Granny {
 
     // Granny image
@@ -18,7 +16,7 @@ public class Granny {
     private final int GRANNY_IMAGE_WIDTH = 295;
     private final int GRANNY_IMAGE_HEIGHT = 440;
 
-    //Constructor
+    // Constructor
     public Granny(GameView window) {
         this.window = window;
         this.image = new ImageIcon("Resources/object/granny.png").getImage();

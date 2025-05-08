@@ -1,10 +1,8 @@
+// Cookie Clicker by Deano Roberts
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * FallingCookie
- * Represents a small cookie image that falls down the screen when the  cookie is clicked.
- */
+// FallingCookie, cookie that falls down the screen when cookie is clicked
 public class FallingCookie {
 
     // Reference to the game window
@@ -22,7 +20,7 @@ public class FallingCookie {
     private static final int MAX_SPEED = 8;
     private final int windowWidth;
 
-    //Constructor
+    // Constructor
     public FallingCookie(GameView window) {
         this.window = window;
         this.windowWidth = 700;

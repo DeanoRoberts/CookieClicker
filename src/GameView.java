@@ -1,11 +1,8 @@
+// Cookie Clicker by Deano Roberts
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * GameView
- * Handles the visual rendering of the Cookie Clicker game.
- * Draws background, score info, upgrades, and falling cookies.
- */
+// GameView, Handles the visual components of the Cookie Clicker
 public class GameView extends JFrame {
 
     // Window dimensions
@@ -15,7 +12,7 @@ public class GameView extends JFrame {
     private final Game game;
     private final Image background;
 
-    //Constructor
+    // Constructor
     public GameView(Game game) {
         this.game = game;
 

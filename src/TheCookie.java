@@ -1,7 +1,8 @@
+// Cookie Clicker by Deano Roberts
 import javax.swing.*;
 import java.awt.*;
 
-// main clickable cookie image
+// Main clickable cookie image
 public class TheCookie {
 
     // Cookie image + reference to the window
@@ -12,13 +13,13 @@ public class TheCookie {
     private final int COOKIE_IMAGE_WIDTH = 533;
     private final int COOKIE_IMAGE_HEIGHT = 543;
 
-    //Constructor
+    // Constructor
     public TheCookie(GameView window) {
         this.window = window;
         this.image = new ImageIcon("Resources/object/cookie.png").getImage();
     }
 
-    //Draws the cookie image
+    // Draws the cookie image
     public void draw(Graphics g, int x, int y) {
         g.drawImage(
                 image,
