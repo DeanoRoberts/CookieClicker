@@ -108,7 +108,10 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
                 points -= grannyCost;
                 grannyCost = (grannyCost * numGranny) + 5;
 
-                if (points < 0) points = 0;
+                if (points < 0)
+                {
+                    points = 0;
+                }
             }
         }
 
@@ -120,7 +123,10 @@ public class Game implements ActionListener, MouseListener, MouseMotionListener 
                 points -= factoryCost;
                 factoryCost = (factoryCost * numFactory) + 30;
 
-                if (points < 0) points = 0;
+                if (points < 0)
+                {
+                    points = 0;
+                }
             }
         }
 
